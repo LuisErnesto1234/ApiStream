@@ -15,4 +15,6 @@ public class Producto {
     private double precio;
     private int stock;
     private String categoria;
+    private int cantidadVendida;
+
 }

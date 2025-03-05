@@ -1,8 +1,15 @@
 package com.pruebas.estudio;
 
+import com.pruebas.estudio.model.Autor;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
@@ -27,14 +34,43 @@ public class Main {
 //                .build();
 //
 //        s3.forEach(System.out::println);
-
-        List<String> lista = Arrays.asList("Luis", "Ernesto", "Mateo", "Adriano", "Nil");
-        Stream<String> s4 = lista.stream();
-        s4.forEach(System.out::println);
+//
+//        List<String> lista = Arrays.asList("Luis", "Ernesto", "Mateo", "Adriano", "Nil");
+//        Stream<String> s4 = lista.stream();
+//        s4.forEach(System.out::println);
 
         /*TODO: Otra manera de hacer el mismo ejemplo pero mas simplificado :V*/
-        lista.stream().forEach(System.out::println);
+//        lista.stream().forEach(System.out::println);
 
+        List<Autor> autores = Arrays.asList(
+                new Autor("Gabriel García Márquez", Arrays.asList("Cien años de soledad", "El amor en los tiempos del cólera")),
+                new Autor("Julio Cortázar", Arrays.asList("Rayuela", "Bestiario")),
+                new Autor("Isabel Allende", Arrays.asList("La casa de los espíritus", "Paula"))
+        );
+
+//         TODO: Usa flatMap() para obtener una lista única de libros
+        List<String> nombresLibros = autores.stream()
+                .flatMap(a -> a.getLibros().stream())
+                .toList();
+
+
+        nombresLibros.forEach(System.out::println);
+
+        List<String> mejorFormato = autores.stream()
+                .map(autor -> autor.getNombre() + " [\n  " +
+                        String.join("\n  ", autor.getLibros()) +
+                        "\n]")
+                .toList();
+
+        mejorFormato.forEach(s -> {
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            System.out.println(s);
+        });
 
     }
 }

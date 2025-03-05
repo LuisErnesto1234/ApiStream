@@ -3,10 +3,8 @@ package com.pruebas.estudio;
 import com.pruebas.estudio.model.Bandera;
 import com.pruebas.estudio.model.Mascota;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.*;
+import java.util.stream.*;
 
 public class EjemploStreamMap {
 

@@ -9,11 +9,11 @@ public class ProductoPrueba {
         ProductoService productoService = new ProductoService();
 
         // Agregamos productos
-        productoService.agregarProducto(new Producto(1L, "Laptop", 1200, 5, "Tecnología"));
-        productoService.agregarProducto(new Producto(2L, "Teclado", 45, 6, "Tecnología"));
-        productoService.agregarProducto(new Producto(3L, "Zapatillas", 60, 10, "Moda"));
-        productoService.agregarProducto(new Producto(4L, "Mouse", 25, 20, "Tecnología"));
-        productoService.agregarProducto(new Producto(5L, "Estuche", 40, 60, "Oficina"));
+        productoService.agregarProducto(new Producto(1L, "Laptop", 1200, 5, "Tecnología", 2));
+        productoService.agregarProducto(new Producto(2L, "Teclado", 45, 6, "Tecnología", 0));
+        productoService.agregarProducto(new Producto(3L, "Zapatillas", 60, 10, "Moda", 0));
+        productoService.agregarProducto(new Producto(4L, "Mouse", 25, 20, "Tecnología", 0));
+        productoService.agregarProducto(new Producto(5L, "Estuche", 40, 60, "Oficina", 0));
 
         // Listar productos
         System.out.println("📌 Lista de productos:");

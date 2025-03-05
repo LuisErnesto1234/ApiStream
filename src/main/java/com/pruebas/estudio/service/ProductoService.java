@@ -54,7 +54,7 @@ public class ProductoService {
 
     public void actualizarProductoById(Long id, double precio){
         productoList = productoList.stream()
-                .map(p -> p.getId().equals(id) ? new Producto(p.getId(), p.getNombre(), precio, p.getStock(), p.getCategoria()) : p)
+                .map(p -> p.getId().equals(id) ? new Producto(p.getId(), p.getNombre(), precio, p.getStock(), p.getCategoria(), p.getCantidadVendida()) : p)
                 .collect(Collectors.toList());
     }
 
@@ -80,7 +80,7 @@ public class ProductoService {
     public void actualizarStock(Long id, int cantidad) {
         productoList = productoList.stream()
                 .map(u -> u.getId().equals(id) ? new Producto(u.getId(),
-                        u.getNombre(), u.getPrecio(), u.getStock() + cantidad, u.getCategoria()) : u)
+                        u.getNombre(), u.getPrecio(), u.getStock() + cantidad, u.getCategoria(), u.getCantidadVendida()) : u)
                 .collect(Collectors.toList());
     }
 
